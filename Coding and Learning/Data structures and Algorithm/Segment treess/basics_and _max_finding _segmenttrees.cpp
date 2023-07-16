@@ -48,12 +48,14 @@ int query(int ind,int low,int high,int  l,int r){
     return max(query(2*ind+1,low,mid,l,r),query(2*ind+2,mid+1,high,l,r));
 
 }
-void update(int ind,int st,int en,int index){
+//if we add a value val while updating in segment tree
+void update(int ind,int st,int en,int index,int val){
 if(st==en){
+    seg[ind]+=val;
     return;
 }
 int mid=(st+en)/2;
-if(ind<=mid){
+if(index<=mid){
     update(2*ind+1,st,mid,index);
 }else{
     update(2*ind+2,mid+1,en,index);

@@ -79,6 +79,33 @@ void mergesort(int n,int a[],int l,int r){
     mergesort(n,a,mid+1,r);
     merge(l,r,a,mid);
 }
+int partition(int a[],int low,int high){
+    int i=low;
+    int j=high;
+    int pivot=a[low];
+    while(i<j){
+        while(i<high&&a[i]<=pivot){
+            i++;
+        }
+        while(j>low&&a[j]>pivot){
+            j--;
+        }
+        if(i<j){
+            swap(a[i],a[j]);
+        }
+    }
+    swap(a[low],a[j]);
+    return j;
+}
+void quicksort(int a[],int l,int h){
+   
+    if(l<h){
+        int parti=partition(a,l,h);
+        quicksort(a,l,parti-1);
+        quicksort(a,parti+1,h);
+    }
+    
+}
 int main(){
     ios_base::sync_with_stdio(0);
     cin.tie(0);
@@ -121,6 +148,14 @@ int main(){
             case 4:
             mergesort(n,a,0,n-1);
             cout<<"array value after Merge Sort is : \n";
+            for(int i=0;i<n;i++){
+                cout<<a[i]<<" ";
+            }
+            cout<<"\n";
+            break;
+            case 5:
+            quicksort(a,0,n-1);
+            cout<<"array value after Quick Sort is : \n";
             for(int i=0;i<n;i++){
                 cout<<a[i]<<" ";
             }

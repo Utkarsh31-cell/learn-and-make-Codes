@@ -29,3 +29,6 @@ Links : [1. CSES : https://cses.fi/problemset/
 2. Minimizing Coins : https://cses.fi/problemset/task/1634
   
   These pattern of problems involves : unbounded knapsack problems and other problems.
+
+
+3. 
